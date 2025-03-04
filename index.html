@@ -3,62 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahsan, Sapu Terbang, dan Hutan Rahasia</title>
-    <!-- Link to external CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                window.location.href = "game.html";
+            }, 5000); // Redirect after 5 seconds
+        });
+    </script>
 </head>
 <body>
+    <div class="background-overlay"></div>
     <div class="container">
         <div class="arabic-calligraphy">
             بسم الله الرحمن الرحيم
         </div>
         <div class="message">
-            🌟 Menuju Dunia Petualangan... 🎮
+            🌟 Selamat Datang! Bersiap untuk petualangan... 🎮
         </div>
         <div class="animation-container">
+            <div class="crescent"></div>
             <div class="ball"></div>
         </div>
-        <div class="redirect-text">
-            Anda akan segera dialihkan ke permainan, atau <a href="game.html">klik di sini</a> jika tidak dialihkan otomatis.
-        </div>
     </div>
-
-    <div class="pattern"></div>
-    <div id="particle-container"></div>
+    <div class="rain-container"></div>
 
     <script>
-        // Set the redirect URL to the local game.html file
-        var redirectUrl = "game.html";
-
-        // Redirect after 5 seconds
-        setTimeout(function() {
-            window.location.href = redirectUrl;
-        }, 5000);  // 5000 milliseconds = 5 seconds
-
-        // Create particles (optional for added effect)
-        document.addEventListener('DOMContentLoaded', function () {
-            let particleContainer = document.getElementById('particle-container');
-            let particleCount = 20; // Limit to 20 particles to reduce load time
-
-            function createParticle() {
-                let particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.animationDuration = `${Math.random() * 2 + 3}s`;
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                particleContainer.appendChild(particle);
-
-                // Remove the particle after animation completes
-                setTimeout(() => {
-                    particle.remove();
-                }, 7000); // Same duration as the animation
+        function createRain() {
+            const rainContainer = document.querySelector(".rain-container");
+            for (let i = 0; i < 50; i++) {
+                let drop = document.createElement("div");
+                drop.classList.add("rain");
+                drop.style.left = `${Math.random() * 100}vw`;
+                drop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                drop.style.animationDelay = `${Math.random()}s`;
+                rainContainer.appendChild(drop);
             }
-
-            // Generate particles every 0.3 seconds (slower)
-            setInterval(createParticle, 300);
-        });
+        }
+        document.addEventListener("DOMContentLoaded", createRain);
     </script>
 </body>
 </html>
-
-
