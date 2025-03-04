@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahsan, Sapu Terbang dan Hutan Rahasia</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="arabic-calligraphy">
+            بسم الله الرحمن الرحيم
+        </div>
+        <div class="message">
+            🌟 Menuju Dunia Petualangan... 🎮
+        </div>
+        <div class="animation-container">
+            <div class="ball"></div>
+        </div>
+        <div class="redirect-text">
+            Anda akan segera dialihkan ke permainan, atau <a href="https://kibbitech.github.io/Ahsan-dan-Hutan-Rahasia/">klik di sini</a> jika tidak dialihkan otomatis.
+        </div>
+    </div>
+
+    <div class="pattern"></div>
+    <div id="particle-container"></div>
+
+    <script>
+        // Set the redirect URL
+        var redirectUrl = "https://kibbitech.github.io/Ahsan-dan-Hutan-Rahasia/";
+
+        // Redirect after 5 seconds
+        setTimeout(function() {
+            window.location.href = redirectUrl;
+        }, 5000);  // 5000 milliseconds = 5 seconds
+
+        // Create particles (optional for added effect)
+        document.addEventListener('DOMContentLoaded', function () {
+            let particleContainer = document.getElementById('particle-container');
+            let particleCount = 20; // Limit to 20 particles to reduce load time
+
+            function createParticle() {
+                let particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                particleContainer.appendChild(particle);
+
+                // Remove the particle after animation completes
+                setTimeout(() => {
+                    particle.remove();
+                }, 7000); // Same duration as the animation
+            }
+
+            // Generate particles every 0.3 seconds (slower)
+            setInterval(createParticle, 300);
+        });
+    </script>
+</body>
+</html>
